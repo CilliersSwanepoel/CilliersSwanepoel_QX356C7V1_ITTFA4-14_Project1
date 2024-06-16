@@ -1,0 +1,78 @@
+/* CSS File: base.css */
+.icon {
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    color: #fff; /* Change to your preferred hover text color */
+    background-color: #ff416c; /* Change to your preferred hover background color */
+}
+
+.icon.selected {
+    transform: scale(1.1);
+    color: #fff; /* Change to your preferred selected text color */
+    background-color: #ff4b2b; /* Change to your preferred selected background color */
+}
+
+/* Existing styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background: linear-gradient(to right, #810070, #0096c4);
+    color: #fff;
+    padding: 10px 0; /* Reduced padding to make it thinner */
+    text-align: center;
+    border-radius: 40px; /* Make the header have rounded edges */
+    margin-top: 20px; /* Add space between the top of the page and the navbar */
+    width: calc(100% - 40px); /* Make the header slightly narrower */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Ensure the header is positioned correctly */
+    z-index: 10; /* Ensure the header is on top of other elements */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+nav ul li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transform: translateY(-3px); /* Slightly lift the item */
+}
+
+main {
+    padding: 30px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+}

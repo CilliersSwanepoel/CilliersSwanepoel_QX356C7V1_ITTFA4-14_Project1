@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Game Deals - GamePulse{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/game_deals.css') }}">
+<script src="{{ url_for('static', filename='js/game_deals.js') }}"></script>
+
+<h1 class="title">Game Deals</h1>
+
+<div class="currency-selector">
+    <label for="currency">Select Currency: </label>
+    <select id="currency" onchange="changeCurrency()">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="ZAR">ZAR</option>
+    </select>
+</div>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="searchGames()" placeholder="Search...">
+    <button onclick="clearSearch()">
+        <span class="close-icon">&times;</span>
+    </button>
+</div>
+
+{% if deals %}
+    <ul class="deals-list" id="dealsList">
+        {% for deal in deals %}
+            <li class="deal-item">
+                <a href="{{ url_for('game_item_view', game_id=deal.gameID) }}" class="deal-link">
+                    <img src="{{ deal.thumb }}" alt="{{ deal.title }} thumbnail" class="deal-thumb">
+                    <h2>{{ deal.title }}</h2>
+                    <p class="deal-price" data-price="{{ deal.salePrice }}">Sale Price: ${{ deal.salePrice }}</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No deals found.</p>
+{% endif %}
+{% endblock %}

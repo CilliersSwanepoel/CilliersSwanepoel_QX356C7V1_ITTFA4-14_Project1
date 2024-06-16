@@ -1,0 +1,127 @@
+/* Add this CSS to your game_deals.css */
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.deals-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.deal-item {
+    border: 1px solid #e600da;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #8a00832f;
+    color: #fff;
+}
+
+.deal-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.deal-thumb {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.deal-thumb:hover {
+    transform: scale(1.05);
+}
+
+.deal-item h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.deal-item p {
+    font-size: 1em;
+    color: #ff9800;
+}
+
+
+.currency-selector {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.currency-selector select {
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Add this CSS to your game_deals.css */
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.search-bar input {
+    padding: 10px 20px;
+    font-size: 1em;
+    width: 300px;
+    border-radius: 50px 0 0 50px;
+    border: none;
+    outline: none;
+    background-color: #e600dbaf;
+    color: #fff;
+    transition: width 0.4s ease-in-out;
+}
+
+.search-bar input::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    background-color: #8200b6;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 50px 50px 0;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #980ece;
+}
+
+.search-bar button:focus {
+    outline: none;
+}
+
+.search-bar button .close-icon {
+    font-size: 1.2em;
+}
+
+/* Add this CSS to your game_deals.css */
+
+.deal-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.deal-link:hover {
+    text-decoration: none;
+    color: inherit;
+}

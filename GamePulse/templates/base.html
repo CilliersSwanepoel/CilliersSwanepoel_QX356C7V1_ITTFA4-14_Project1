@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GamePulse{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}" class="icon" id="icon1">Home</a></li>
+                <li><a href="{{ url_for('game_deals') }}" class="icon" id="icon3">Game Deals</a></li>
+                <!-- Remove Wishlist Link -->
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('logout') }}" class="icon" id="icon5">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}" class="icon" id="icon6">Login</a></li>
+                    <li><a href="{{ url_for('register') }}" class="icon" id="icon7">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 GamePulse. All rights reserved.</p>
+    </footer>
+</body>
+</html>

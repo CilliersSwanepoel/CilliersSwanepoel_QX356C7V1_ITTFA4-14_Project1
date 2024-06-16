@@ -1,0 +1,73 @@
+.video-container {
+    position: absolute;
+    top: 52px; /* Adjust to the height of your navbar */
+    left: 0;
+    width: 100%;
+    height: calc(60vh - 60px); /* Adjust height to fill screen below navbar */
+    overflow: hidden;
+    z-index: 0;
+}
+
+.video-loop {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+}
+
+.video-overlay h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.video-overlay p {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to right, #810070, #0096c4);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 400px; /* Adjust this value to move the content down */
+}
+
+.pic1-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #0000002a;
+    margin: 20px 0;
+}
+
+.pic1-container img {
+    max-width: 40%;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.pic1-text {
+    flex: 1;
+}
+
+.pic1-text h2 {
+    font-size: 2em;
+    margin: 0 0 10px;
+}
+
+.pic1-text p {
+    font-size: 1em;
+    margin: 0;
+}

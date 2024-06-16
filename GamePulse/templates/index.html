@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Home - GamePulse{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+<div class="video-container">
+    <video class="video-loop" loop autoplay muted>
+        <source src="{{ url_for('static', filename='assets/videos/mixkit-group-of-friends-having-fun-playing-together-online-43524-hd-ready.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay">
+        <h1>Welcome to GamePulse</h1>
+        <p>Your ultimate gaming hub.</p>
+    </div>
+</div>
+<div class="content">
+    <div class="pic1-container">
+        <img src="{{ url_for('static', filename='assets/pictures/pexels-lulizler-3165335.jpg') }}" alt="glowing keyboard">
+        <div class="pic1-text">
+            <h2>Attention All Gamers!</h2>
+            <p>At GamePulse, we make finding the best deals on games easier than ever before.
+                Our platform not only helps you save money but also connects you with a vibrant community of gamers.
+                Join us and experience the ultimate gaming hub where deals and community come together.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

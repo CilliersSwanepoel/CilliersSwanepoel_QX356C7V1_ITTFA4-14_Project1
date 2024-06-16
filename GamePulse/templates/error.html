@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Error - GamePulse{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/game_item_view.css') }}">
+
+<div class="error-message">
+    <h1>Error</h1>
+    <p>{{ message }}</p>
+</div>
+{% endblock %}
