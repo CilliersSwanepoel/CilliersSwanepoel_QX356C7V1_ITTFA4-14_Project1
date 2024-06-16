@@ -7,19 +7,16 @@ import os
 
 app = Flask(__name__)
 
-# Configuration
-app.config['SECRET_KEY'] = os.urandom(24)  # In production, use a fixed secret key stored securely
+app.config['SECRET_KEY'] = os.urandom(24) 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Quxub7164*02@localhost/Users'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
-# Extensions
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
-# User model
 class User(db.Model, UserMixin):
     __tablename__ = 'user_data'
     id = db.Column(db.Integer, primary_key=True)
@@ -73,17 +70,14 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-# Fetch and cache store information
 stores_url = 'https://www.cheapshark.com/api/1.0/stores'
 stores_response = requests.get(stores_url)
 stores_data = stores_response.json()
 
-# Create a dictionary to map storeID to store name
 store_dict = {store['storeID']: store['storeName'] for store in stores_data}
 
 @app.route('/game_deals')
 def game_deals():
-    # Fetch game deals from CheapShark API
     deals_url = "http://www.cheapshark.com/api/1.0/deals"
     deals_response = requests.get(deals_url)
 
@@ -96,14 +90,12 @@ def game_deals():
 
 @app.route('/game/<game_id>')
 def game_item_view(game_id):
-    # Fetch game details from CheapShark API
     response = requests.get(f"http://www.cheapshark.com/api/1.0/games?id={game_id}")
     game = response.json()
     # Debug statement to check game_id
     print(f"Fetched game details for game_id: {game_id}")
     return render_template('game_item_view.html', game=game, store_dict=store_dict)
 
-# Example of a protected route
 @app.route('/protected')
 @login_required
 def protected():
