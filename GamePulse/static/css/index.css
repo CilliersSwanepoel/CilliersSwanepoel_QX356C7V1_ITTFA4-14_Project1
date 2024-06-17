@@ -71,3 +71,50 @@
     font-size: 1em;
     margin: 0;
 }
+
+/* Existing CSS */
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.carousel-container {
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 400px; /* Set a fixed height */
+    object-fit: contain; /* Ensure the entire image fits within the dimensions */
+    display: none;
+    background-color: #000; /* Optional: Add a background color to fill the empty space */
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+.carousel-text {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+
