@@ -23,6 +23,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 header {
@@ -31,11 +40,10 @@ header {
     padding: 10px 0; /* Reduced padding to make it thinner */
     text-align: center;
     border-radius: 40px; /* Make the header have rounded edges */
-    margin-top: 20px; /* Add space between the top of the page and the navbar */
-    width: calc(100% - 40px); /* Make the header slightly narrower */
-    margin-left: auto;
-    margin-right: auto;
-    position: relative; /* Ensure the header is positioned correctly */
+    margin-top: 0; /* Remove space between the top of the page and the navbar */
+    width: 100%; /* Make the header span the full width */
+    position: fixed; /* Ensure the header is positioned correctly */
+    top: 0; /* Ensure the header is at the top */
     z-index: 10; /* Ensure the header is on top of other elements */
 }
 
@@ -65,7 +73,9 @@ nav ul li:hover {
 }
 
 main {
+    flex: 1;
     padding: 30px;
+    padding-top: 80px; /* Adjust padding to avoid content being hidden behind navbar */
 }
 
 footer {
@@ -75,4 +85,6 @@ footer {
     padding: 10px 0;
     width: 100%;
     position: relative;
+    bottom: 0; /* Ensure the footer is at the bottom */
+    z-index: 1;
 }
