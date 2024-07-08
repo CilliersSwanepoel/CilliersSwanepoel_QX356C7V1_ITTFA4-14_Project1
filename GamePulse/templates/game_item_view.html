@@ -13,13 +13,34 @@
         <p>Normal Price: ${{ game.deals[0].retailPrice }}</p>
         <p>Available at Stores: 
             {% for deal in game.deals %}
-                {{ store_dict[deal.storeID] }}{% if not loop.last %}, {% endif %}
+                <a href="{{ store_links[deal.storeID] }}" target="_blank">{{ store_dict[deal.storeID] }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
         </p>
-        <h3>Description:</h3>
-        <p><a href="{{ game.metacriticLink }}">Metacritic Page</a></p>
     {% else %}
         <p>Game details not available.</p>
     {% endif %}
 </div>
+
+<div class="comments-section">
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <div class="comment">
+            <p class="comment-author"><strong>{{ comment.user.name }}</strong> said:</p>
+            <p class="comment-content">{{ comment.content }}</p>
+            <p class="comment-timestamp"><small>{{ comment.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small></p>
+        </div>
+    {% endfor %}
+</div>
+
+{% if current_user.is_authenticated %}
+    <form action="{{ url_for('game_item_view', game_id=game_id) }}" method="POST" class="comment-form">
+        <div class="form-group">
+            <label for="content">Add a Comment:</label>
+            <textarea name="content" id="content" class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+    </form>
+{% else %}
+    <p>You need to <a href="{{ url_for('login') }}">log in</a> to post a comment.</p>
+{% endif %}
 {% endblock %}
